@@ -25,10 +25,10 @@
 \geometry{
     paperwidth=210mm,
     paperheight=297mm,
-    left=2.5cm,
-    right=2.5cm,
-    top=2.5cm,
-    bottom=2.5cm,
+    left=2.6cm,
+    right=2.4cm,
+    top=2.7cm,
+    bottom=2.4cm,
     headheight=15pt,
     headsep=20pt,
     footskip=30pt
@@ -51,7 +51,7 @@
 \RequirePackage{float}              % 浮动体控制
 \RequirePackage{caption}            % 图表标题
 \RequirePackage{subcaption}         % 子图标题
-\RequirePackage{bicaption}           % 双语图表标题
+% \RequirePackage{bicaption}           % 双语图表标题（已禁用，仅使用中文标题）
 \RequirePackage{hyperref}           % 超链接
 \RequirePackage{enumitem}           % 列表环境
 \RequirePackage{xcolor}             % 颜色
@@ -81,10 +81,12 @@
 % ------------------------------------------------------------
 % 字体设置
 % ------------------------------------------------------------
-% 中文字体：宋体(正文)、黑体(标题)
+% 中文字体：宋体(正文)、黑体(标题)、楷体、华文中宋
 \setCJKmainfont{SimSun}[AutoFakeBold=true,AutoFakeSlant=true]     % 宋体 - 正文
 \setCJKsansfont{SimHei}[AutoFakeBold=true]                         % 黑体 - 标题
 \setCJKmonofont{SimSun}                                             % 宋体 - 等宽备选
+\setCJKfamilyfont{hwzs}[Path=./font/,Extension=.TTF,AutoFakeBold=true,AutoFakeSlant=true]{STZHONGS}  % 华文中宋
+\setCJKfamilyfont{kaiti}[AutoFakeBold=true,AutoFakeSlant=true]{KaiTi}  % 楷体
 
 % 英文字体：Times New Roman
 \setmainfont{Times New Roman}
@@ -114,54 +116,57 @@
 % ------------------------------------------------------------
 % 行距设置
 % ------------------------------------------------------------
-\setstretch{1.5}    % 1.5倍行距
+\setstretch{1.38}   % 固定20磅行距（12pt × 1.38 ≈ 20pt）
 
 % ------------------------------------------------------------
 % 章节标题格式设置
 % ------------------------------------------------------------
 \ctexset{
     chapter = {
-        format = \centering\sffamily\xiaoer\bfseries,
+        format = \centering\sffamily\xiaosan\bfseries,
         name = {第,章},
         number = \chinese{chapter},
-        beforeskip = 24pt,
-        afterskip = 18pt,
+        beforeskip = 0pt,
+        afterskip = 20pt,
         pagestyle = fancy
     },
     section = {
-        format = \sffamily\sanhao\bfseries,
-        beforeskip = 12pt,
-        afterskip = 6pt
+        format = \sffamily\sihao\bfseries,
+        beforeskip = 0pt,
+        afterskip = 0pt
     },
     subsection = {
-        format = \sffamily\sihao\bfseries,
-        beforeskip = 6pt,
-        afterskip = 6pt
+        format = \sffamily\xiaosi\bfseries,
+        beforeskip = 0pt,
+        afterskip = 0pt
     },
     subsubsection = {
         format = \sffamily\xiaosi\bfseries,
-        beforeskip = 6pt,
-        afterskip = 6pt
+        beforeskip = 0pt,
+        afterskip = 0pt
     }
 }
 
 % ------------------------------------------------------------
 % 目录格式设置
 % ------------------------------------------------------------
-\renewcommand{\cftchapfont}{\sffamily\xiaosi}
-\renewcommand{\cftsecfont}{\xiaosi}
-\renewcommand{\cftsubsecfont}{\xiaosi}
+\renewcommand{\contentsname}{目\quad\quad 录}
+\renewcommand{\cfttoctitlefont}{\hfill\sffamily\xiaosan\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftchapfont}{\songti\xiaosi}
+\renewcommand{\cftsecfont}{\songti\xiaosi}
+\renewcommand{\cftsubsecfont}{\songti\xiaosi}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
-\setlength{\cftbeforechapskip}{6pt}
-\setlength{\cftbeforesecskip}{3pt}
-\setlength{\cftbeforesubsecskip}{3pt}
+\setlength{\cftbeforechapskip}{0pt}
+\setlength{\cftbeforesecskip}{0pt}
+\setlength{\cftbeforesubsecskip}{0pt}
 
 % ------------------------------------------------------------
 % 页眉页脚设置
 % ------------------------------------------------------------
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[C]{\xiaowu 心河大学学位论文}
+\fancyhead[C]{\songti\wuhao 湖南理工学院毕业综合训练}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -169,7 +174,7 @@
 % 章节首页页眉页脚
 \fancypagestyle{plain}{
     \fancyhf{}
-    \fancyhead[C]{\xiaowu 心河大学学位论文}
+    \fancyhead[C]{\songti\wuhao 湖南理工学院毕业综合训练}
     \fancyfoot[C]{\thepage}
     \renewcommand{\headrulewidth}{0.4pt}
 }
@@ -177,28 +182,14 @@
 % ------------------------------------------------------------
 % 图表标题格式
 % ------------------------------------------------------------
+\DeclareCaptionFont{wuhao}{\wuhao}
 \captionsetup{
-    font={small},
-    labelfont={bf},
+    font={wuhao,sf,bf},
     labelsep=quad,
     skip=10pt
 }
 \captionsetup[figure]{name={图}}
 \captionsetup[table]{name={表}}
-
-% ------------------------------------------------------------
-% 双语图表标题设置
-% ------------------------------------------------------------
-\DeclareCaptionOption{bi-first}[]{%
-    \def\figurename{图}%
-    \def\tablename{表}%
-}
-\DeclareCaptionOption{bi-second}[]{%
-    \def\figurename{Figure}%
-    \def\tablename{Table}%
-}
-\captionsetup[bi-first]{bi-first}
-\captionsetup[bi-second]{bi-second}
 
 % ------------------------------------------------------------
 % 图表编号格式: 章-序号
@@ -261,6 +252,7 @@
 % ------------------------------------------------------------
 % 封面信息命令
 % ------------------------------------------------------------
+\makeatletter
 \newcommand{\university}[1]{\gdef\@university{#1}}
 \newcommand{\college}[1]{\gdef\@college{#1}}
 \newcommand{\major}[1]{\gdef\@major{#1}}
@@ -268,6 +260,8 @@
 \newcommand{\studentid}[1]{\gdef\@studentid{#1}}
 \newcommand{\degree}[1]{\gdef\@degree{#1}}
 \newcommand{\submitdate}[1]{\gdef\@submitdate{#1}}
+\newcommand{\grade}[1]{\gdef\@grade{#1}}
+\newcommand{\advisortitle}[1]{\gdef\@advisortitle{#1}}
 
 \university{XX大学}
 \college{XX学院}
@@ -276,6 +270,8 @@
 \studentid{20XXXXXXXX}
 \degree{硕士学位论文}
 \submitdate{2026年3月}
+\grade{20XX届}
+\advisortitle{讲师}
 
 % ------------------------------------------------------------
 % 封面生成命令
@@ -318,6 +314,7 @@
         
     \end{titlepage}
 }
+\makeatother
 
 % ============================================================
 % 文档类结束

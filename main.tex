@@ -16,15 +16,17 @@
 % ------------------------------------------------------------
 % 论文基本信息设置
 % ------------------------------------------------------------
-\title{基于LaTeX的学位论文排版系统研究}
-\author{张三}
-\university{XX大学}
-\college{计算机科学与技术学院}
-\major{计算机科学与技术}
-\advisor{李四教授}
-\studentid{2024123456}
-\degree{硕士学位论文}
-\submitdate{2026年3月}
+\title{Latex排版系统应用与研究}
+\author{李四}
+\university{王五}
+\college{统计学院}
+\major{应用统计}
+\advisor{王五}
+\studentid{21381xx123}
+\degree{学士学位论文}
+\submitdate{2025年5月19日}
+\grade{2025届}
+\advisortitle{讲师}
 
 % ------------------------------------------------------------
 % 加载额外宏包 (根据需要在导言区添加)
@@ -48,45 +50,87 @@
 % ============================================================
 \begin{document}
 
+% 封面开始算页码，罗马数字
+\pagenumbering{Roman}
+\setcounter{page}{1}
+
 % ------------------------------------------------------------
 % 封面
 % ------------------------------------------------------------
+\makeatletter
 \begin{titlepage}
-    \centering
-    \vspace*{1cm}
+    \thispagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[C]{\songti\wuhao 湖南理工学院毕业综合训练}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \fancyfoot[C]{\thepage}
     
-    % 学校名称
-    {\zihao{-2}\bfseries 心河大学}
+    \vspace*{-0.75cm}
     
-    \vspace{1.5cm}
+    % 学号
+    \begin{flushright}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{@{}c p{4.5cm}@{}}
+        \bfseries\CJKfamily{hwzs}\xiaosi 学号： & \xiaosi\underline{\makebox[4.5cm][c]{\@studentid}} \\
+    \end{tabular}
+    \end{flushright}
     
-    % 学位类型
-    {\zihao{2}\bfseries 硕士学位论文}
+    \vspace{-0.5cm}
     
-    \vspace{3cm}
+    % Logo
+    \begin{center}
+        \includegraphics[height=5.7cm]{figture/logo.png}
+    \end{center}
     
-    % 论文题目
-    {\zihao{-2}\bfseries 基于LaTeX的学位论文排版系统研究}
+    \vspace{0.2cm}
     
-    \vspace{4cm}
+    % 毕业论文（设计）
+    {\centering \bfseries\CJKfamily{hwzs}\xiaochu 毕业论文（设计）\par}
+    
+    \vspace{3.5cm}
+    
+    % 题目
+    \begin{center}
+    \setlength{\tabcolsep}{0pt}
+    \renewcommand{\arraystretch}{1.0}
+    \begin{tabular}{@{}p{3.30cm} p{12.62cm}@{}}
+        \parbox[c][1.79cm]{3.30cm}{\centering\bfseries\CJKfamily{hwzs}\xiaoer 题\qquad 目：} & 
+        \parbox[c][1.79cm]{12.62cm}{\centering\CJKfamily{hwzs}\xiaoer \@title} \\
+        \cline{2-2}
+    \end{tabular}
+    \end{center}
+    
+    \vspace{2.5cm}
     
     % 作者信息
-    {\zihao{4}
-    \begin{tabular}{rl}
-        \textbf{学院名称：} & 计算机科学与技术学院 \\[0.8cm]
-        \textbf{专业名称：} & 计算机科学与技术 \\[0.8cm]
-        \textbf{作者姓名：} & 张三 \\[0.8cm]
-        \textbf{学\qquad 号：} & 2024123456 \\[0.8cm]
-        \textbf{指导教师：} & 李四教授 \\[0.8cm]
+    \begin{center}
+    \setlength{\tabcolsep}{0pt}
+    \renewcommand{\arraystretch}{1.0}
+    \begin{tabular}{@{}>{\raggedleft\arraybackslash}m{2.5cm} >{\centering\arraybackslash}m{5.35cm} @{\hspace{0.2cm}} >{\raggedleft\arraybackslash}m{2.5cm} >{\centering\arraybackslash}m{5.35cm}@{}}
+        \bfseries\CJKfamily{hwzs}\sanhao 作\qquad 者： & 
+        \CJKfamily{kaiti}\sanhao \@author & 
+        \bfseries\CJKfamily{hwzs}\sanhao 届\quad 别： & 
+        \CJKfamily{kaiti}\sanhao \@grade \\
+        \cline{2-2} \cline{4-4}
+        \bfseries\CJKfamily{hwzs}\sanhao 学\qquad 院： & 
+        \CJKfamily{kaiti}\sanhao \@college & 
+        \bfseries\CJKfamily{hwzs}\sanhao 专\quad 业： & 
+        \CJKfamily{kaiti}\sanhao \@major \\
+        \cline{2-2} \cline{4-4}
+        \bfseries\CJKfamily{hwzs}\sanhao 指导教师： & 
+        \CJKfamily{kaiti}\sanhao \@advisor & 
+        \bfseries\CJKfamily{hwzs}\sanhao 职\quad 称： & 
+        \CJKfamily{kaiti}\sanhao \@advisortitle \\
+        \cline{2-2} \cline{4-4}
+        \bfseries\CJKfamily{hwzs}\sanhao 完成时间： & 
+        \multicolumn{3}{@{}c@{}}{\CJKfamily{kaiti}\sanhao \@submitdate} \\[-3pt]
+        \cline{2-4}
     \end{tabular}
-    }
+    \end{center}
     
     \vfill
-    
-    % 提交日期
-    {\zihao{4}\bfseries 2026年3月}
-    
 \end{titlepage}
+\makeatother
 
 % ------------------------------------------------------------
 % 原创性声明 (可根据学校要求添加)
@@ -94,15 +138,19 @@
 % \input{chapters/declaration}
 
 % ------------------------------------------------------------
-% 摘要
+% 摘要（封面后连续页码：中文摘要为2，英文摘要为3）
 % ------------------------------------------------------------
-\frontmatter
+\makeatletter\@mainmatterfalse\makeatother
 \input{chapters/abstract}
 
 % ------------------------------------------------------------
-% 目录
+% 目录（页码从阿拉伯数字1开始）
 % ------------------------------------------------------------
-\clearpage  % 分页，目录从新页开始
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\addcontentsline{toc}{chapter}{目录}
+\makeatletter\@mainmattertrue\makeatother
 \tableofcontents
 
 % ------------------------------------------------------------
@@ -125,7 +173,6 @@
 % ------------------------------------------------------------
 % 正文部分
 % ------------------------------------------------------------
-\mainmatter
 
 % 各章节文件引入
 \input{chapters/chapter1}
