@@ -61,70 +61,68 @@
 \begin{titlepage}
     \thispagestyle{fancy}
     \fancyhf{}
-    \fancyhead[C]{\songti\wuhao 湖南理工学院毕业综合训练}
-    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\headrulewidth}{0pt}
     \fancyfoot[C]{\thepage}
     
-    \vspace*{-0.75cm}
-    
-    % 学号
-    \begin{flushright}
-    \renewcommand{\arraystretch}{1.2}
-    \begin{tabular}{@{}c p{4.5cm}@{}}
-        \bfseries\CJKfamily{hwzs}\xiaosi 学号： & \xiaosi\underline{\makebox[4.5cm][c]{\@studentid}} \\
-    \end{tabular}
-    \end{flushright}
-    
-    \vspace{-0.5cm}
-    
-    % Logo
+    \vfill
+
+    % 封面顶部整合表格（全边框）
     \begin{center}
-        \includegraphics[height=5.7cm]{figture/logo.png}
+    \setlength{\tabcolsep}{0pt}
+    \renewcommand{\arraystretch}{0}
+    \begin{tabular}{|p{5.76cm}|p{4.4cm}|p{5.76cm}|}
+        \hline
+        \multirow{3}{5.76cm}{\parbox[c][2.41cm][c]{5.76cm}{\rule{0pt}{0pt}}} & 
+        \parbox[c][0.4cm][c]{4.4cm}{~} & 
+        \parbox[c][0.4cm][c]{5.76cm}{~} \\
+        \cline{2-3}
+         & 
+        \parbox[c][1.08cm][c]{4.4cm}{~} & 
+        \parbox[c][1.08cm][c]{5.76cm}{\centering\songti\xiaosi 学号：\@studentid} \\
+        \cline{2-3}
+         & 
+        \multicolumn{2}{c|}{\parbox[c][0.93cm][c]{10.15cm}{~}} \\
+        \hline
+        \multicolumn{3}{|c|}{\parbox[c][2.2cm][c]{15.92cm}{\centering\includegraphics[width=7.23cm,height=1.34cm]{figture/logo.png}}} \\
+        \hline
+        \multicolumn{3}{|c|}{\parbox[c][3.25cm][c]{15.92cm}{\centering\songti\yihao 毕业论文（设计）}} \\
+        \hline
+    \end{tabular}
     \end{center}
     
     \vspace{0.2cm}
     
-    % 毕业论文（设计）
-    {\centering \bfseries\CJKfamily{hwzs}\xiaochu 毕业论文（设计）\par}
-    
-    \vspace{3.5cm}
-    
-    % 题目
+    % 论文信息表格
     \begin{center}
     \setlength{\tabcolsep}{0pt}
-    \renewcommand{\arraystretch}{1.0}
-    \begin{tabular}{@{}p{3.30cm} p{12.62cm}@{}}
-        \parbox[c][1.79cm]{3.30cm}{\centering\bfseries\CJKfamily{hwzs}\xiaoer 题\qquad 目：} & 
-        \parbox[c][1.79cm]{12.62cm}{\centering\CJKfamily{hwzs}\xiaoer \@title} \\
-        \cline{2-2}
-    \end{tabular}
-    \end{center}
-    
-    \vspace{2.5cm}
-    
-    % 作者信息
-    \begin{center}
-    \setlength{\tabcolsep}{0pt}
-    \renewcommand{\arraystretch}{1.0}
-    \begin{tabular}{@{}>{\raggedleft\arraybackslash}m{2.5cm} >{\centering\arraybackslash}m{5.35cm} @{\hspace{0.2cm}} >{\raggedleft\arraybackslash}m{2.5cm} >{\centering\arraybackslash}m{5.35cm}@{}}
-        \bfseries\CJKfamily{hwzs}\sanhao 作\qquad 者： & 
-        \CJKfamily{kaiti}\sanhao \@author & 
-        \bfseries\CJKfamily{hwzs}\sanhao 届\quad 别： & 
-        \CJKfamily{kaiti}\sanhao \@grade \\
-        \cline{2-2} \cline{4-4}
-        \bfseries\CJKfamily{hwzs}\sanhao 学\qquad 院： & 
-        \CJKfamily{kaiti}\sanhao \@college & 
-        \bfseries\CJKfamily{hwzs}\sanhao 专\quad 业： & 
-        \CJKfamily{kaiti}\sanhao \@major \\
-        \cline{2-2} \cline{4-4}
-        \bfseries\CJKfamily{hwzs}\sanhao 指导教师： & 
-        \CJKfamily{kaiti}\sanhao \@advisor & 
-        \bfseries\CJKfamily{hwzs}\sanhao 职\quad 称： & 
-        \CJKfamily{kaiti}\sanhao \@advisortitle \\
-        \cline{2-2} \cline{4-4}
-        \bfseries\CJKfamily{hwzs}\sanhao 完成时间： & 
-        \multicolumn{3}{@{}c@{}}{\CJKfamily{kaiti}\sanhao \@submitdate} \\[-3pt]
-        \cline{2-4}
+    \renewcommand{\arraystretch}{0}
+    \begin{tabular}{|@{}p{2.77cm}|p{4.99cm}|p{2.43cm}|p{5.33cm}|}
+        \hline
+        \multicolumn{1}{|@{}c@{}|}{\parbox[b][1.60cm][c]{2.77cm}{\centering\songti\xiaoer 题\quad 目：}} &
+        \multicolumn{3}{|c@{}|}{\parbox[b][1.60cm][c]{12.75cm}{\centering\songti\xiaoer \@title}} \\
+        \hline
+        \multicolumn{4}{|@{}c@{}|}{\parbox[b][2cm][c]{15.52cm}{~}} \\
+        \hline
+        \multicolumn{4}{|@{}c@{}|}{\parbox[b][3cm][c]{15.52cm}{~}} \\
+        \hline
+        \parbox[b][1.20cm][c]{2.77cm}{\centering\songti\sanhao 作\qquad 者：} &
+        \parbox[b][1.20cm][c]{4.99cm}{\centering\songti\sanhao \@author} &
+        \parbox[b][1.20cm][c]{2.43cm}{\centering\songti\sanhao 届\quad 别：} &
+        \parbox[b][1.20cm][c]{5.33cm}{\centering\songti\sanhao \@grade} \\
+        \hline
+        \parbox[b][1.20cm][c]{2.77cm}{\centering\songti\sanhao 学\qquad 院：} &
+        \parbox[b][1.20cm][c]{4.99cm}{\centering\songti\sanhao \@college} &
+        \parbox[b][1.20cm][c]{2.43cm}{\centering\songti\sanhao 专\quad 业：} &
+        \parbox[b][1.20cm][c]{5.33cm}{\centering\songti\sanhao \@major} \\
+        \hline
+        \parbox[b][1.20cm][c]{2.77cm}{\centering\songti\sanhao 指导教师：} &
+        \parbox[b][1.20cm][c]{4.99cm}{\centering\songti\sanhao \@advisor} &
+        \parbox[b][1.20cm][c]{2.43cm}{\centering\songti\sanhao 职\quad 称：} &
+        \parbox[b][1.20cm][c]{5.33cm}{\centering\songti\sanhao \@advisortitle} \\
+        \hline
+        \parbox[b][1.20cm][c]{2.77cm}{\centering\songti\sanhao 完成时间：} &
+        \multicolumn{3}{|c@{}|}{\parbox[b][1.20cm][c]{12.75cm}{\centering\songti\sanhao \@submitdate}} \\
+        \hline
     \end{tabular}
     \end{center}
     
