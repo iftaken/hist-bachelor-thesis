@@ -24,7 +24,7 @@
 \advisor{王五}
 \studentid{21381xx123}
 \degree{学士学位论文}
-\submitdate{2025年5月19日}
+\submitdate{2026年5月}
 \grade{2025届}
 \advisortitle{讲师}
 
@@ -50,9 +50,8 @@
 % ============================================================
 \begin{document}
 
-% 封面开始算页码，罗马数字
-\pagenumbering{Roman}
-\setcounter{page}{1}
+% 封面页不显示页码
+\pagenumbering{gobble}
 
 % ------------------------------------------------------------
 % 封面
@@ -70,23 +69,18 @@
     \begin{center}
     \setlength{\tabcolsep}{0pt}
     \renewcommand{\arraystretch}{0}
-    \begin{tabular}{|p{5.76cm}|p{4.4cm}|p{5.76cm}|}
-        \hline
+    \begin{tabular}{p{5.76cm}p{4.4cm}p{5.76cm}}
         \multirow{3}{5.76cm}{\parbox[c][2.41cm][c]{5.76cm}{\rule{0pt}{0pt}}} & 
-        \parbox[c][0.4cm][c]{4.4cm}{~} & 
-        \parbox[c][0.4cm][c]{5.76cm}{~} \\
-        \cline{2-3}
+        \parbox[c][1.1cm][c]{4.4cm}{~} & 
+        \parbox[c][1.1cm][c]{5.76cm}{~} \\
          & 
-        \parbox[c][1.08cm][c]{4.4cm}{~} & 
-        \parbox[c][1.08cm][c]{5.76cm}{\centering\songti\xiaosi 学号：\@studentid} \\
-        \cline{2-3}
+        \parbox[c][1.08cm][c]{4.4cm}{\raggedleft\songti\xiaosi 学号：\hspace{1em}} & 
+        \parbox[c][1.08cm][c]{5.76cm}{\raggedright\songti\xiaosi \@studentid} \\
+        \cline{3-3}
          & 
-        \multicolumn{2}{c|}{\parbox[c][0.93cm][c]{10.15cm}{~}} \\
-        \hline
-        \multicolumn{3}{|c|}{\parbox[c][2.2cm][c]{15.92cm}{\centering\includegraphics[width=7.23cm,height=1.34cm]{figture/logo.png}}} \\
-        \hline
-        \multicolumn{3}{|c|}{\parbox[c][3.25cm][c]{15.92cm}{\centering\songti\yihao 毕业论文（设计）}} \\
-        \hline
+        \multicolumn{2}{c}{\parbox[c][0.93cm][c]{10.15cm}{~}} \\
+        \multicolumn{3}{c}{\parbox[c][2.2cm][c]{15.92cm}{\centering\includegraphics[width=7.23cm,height=1.34cm]{figture/logo.png}}} \\
+        \multicolumn{3}{c}{\parbox[c][3.25cm][c]{15.92cm}{\centering\songti\yihao 毕业论文（设计）}} \\
     \end{tabular}
     \end{center}
     
@@ -96,33 +90,30 @@
     \begin{center}
     \setlength{\tabcolsep}{0pt}
     \renewcommand{\arraystretch}{0}
-    \begin{tabular}{|@{}p{2.77cm}|p{4.99cm}|p{2.43cm}|p{5.33cm}|}
-        \hline
-        \multicolumn{1}{|@{}c@{}|}{\parbox[b][1.60cm][c]{2.77cm}{\centering\songti\xiaoer 题\quad 目：}} &
-        \multicolumn{3}{|c@{}|}{\parbox[b][1.60cm][c]{12.75cm}{\centering\songti\xiaoer \@title}} \\
-        \hline
-        \multicolumn{4}{|@{}c@{}|}{\parbox[b][2cm][c]{15.52cm}{~}} \\
-        \hline
-        \multicolumn{4}{|@{}c@{}|}{\parbox[b][3cm][c]{15.52cm}{~}} \\
-        \hline
-        \parbox[b][1.20cm][c]{2.77cm}{\centering\songti\sanhao 作\qquad 者：} &
+    \begin{tabular}{@{}p{2.77cm}p{4.99cm}p{2.43cm}p{5.33cm}@{}}
+        \multicolumn{1}{@{}c@{}}{\parbox[b][1.60cm][c]{2.77cm}{\centering\songti\xiaoer 题\quad 目：}} &
+        \multicolumn{3}{c@{}}{\parbox[b][1.60cm][c]{12.75cm}{\centering\songti\xiaoer \@title}} \\
+        \cline{2-4}
+        \multicolumn{4}{@{}c@{}}{\parbox[b][2.02cm][c]{15.52cm}{~}} \\
+        \multicolumn{4}{@{}c@{}}{\parbox[b][6.09cm][c]{15.52cm}{~}} \\
+        \parbox[b][1.20cm][c]{2.77cm}{\centering\songti\sanhao 作\qquad 者} &
         \parbox[b][1.20cm][c]{4.99cm}{\centering\songti\sanhao \@author} &
-        \parbox[b][1.20cm][c]{2.43cm}{\centering\songti\sanhao 届\quad 别：} &
+        \parbox[b][1.20cm][c]{2.43cm}{\centering\songti\sanhao 届\quad 别} &
         \parbox[b][1.20cm][c]{5.33cm}{\centering\songti\sanhao \@grade} \\
-        \hline
-        \parbox[b][1.20cm][c]{2.77cm}{\centering\songti\sanhao 学\qquad 院：} &
+        \cline{2-2} \cline{4-4}
+        \parbox[b][1.20cm][c]{2.77cm}{\centering\songti\sanhao 学\qquad 院} &
         \parbox[b][1.20cm][c]{4.99cm}{\centering\songti\sanhao \@college} &
-        \parbox[b][1.20cm][c]{2.43cm}{\centering\songti\sanhao 专\quad 业：} &
+        \parbox[b][1.20cm][c]{2.43cm}{\centering\songti\sanhao 专\quad 业} &
         \parbox[b][1.20cm][c]{5.33cm}{\centering\songti\sanhao \@major} \\
-        \hline
-        \parbox[b][1.20cm][c]{2.77cm}{\centering\songti\sanhao 指导教师：} &
+        \cline{2-2} \cline{4-4}
+        \parbox[b][1.20cm][c]{2.77cm}{\centering\songti\sanhao 指导教师} &
         \parbox[b][1.20cm][c]{4.99cm}{\centering\songti\sanhao \@advisor} &
-        \parbox[b][1.20cm][c]{2.43cm}{\centering\songti\sanhao 职\quad 称：} &
+        \parbox[b][1.20cm][c]{2.43cm}{\centering\songti\sanhao 职\quad 称} &
         \parbox[b][1.20cm][c]{5.33cm}{\centering\songti\sanhao \@advisortitle} \\
-        \hline
-        \parbox[b][1.20cm][c]{2.77cm}{\centering\songti\sanhao 完成时间：} &
-        \multicolumn{3}{|c@{}|}{\parbox[b][1.20cm][c]{12.75cm}{\centering\songti\sanhao \@submitdate}} \\
-        \hline
+        \cline{2-2} \cline{4-4}
+        \parbox[b][1.20cm][c]{2.77cm}{\centering\songti\sanhao 完成时间} &
+        \multicolumn{3}{c@{}}{\parbox[b][1.20cm][c]{12.75cm}{\centering\songti\sanhao \@submitdate}} \\
+        \cline{2-4}
     \end{tabular}
     \end{center}
     
@@ -136,19 +127,19 @@
 % \input{chapters/declaration}
 
 % ------------------------------------------------------------
-% 摘要（封面后连续页码：中文摘要为2，英文摘要为3）
+% 摘要（罗马数字页码从 I 开始）
 % ------------------------------------------------------------
+\clearpage
+\pagenumbering{Roman}
+\setcounter{page}{1}
 \makeatletter\@mainmatterfalse\makeatother
 \input{chapters/abstract}
 
 % ------------------------------------------------------------
-% 目录（页码从阿拉伯数字1开始）
+% 目录（继续罗马数字页码）
 % ------------------------------------------------------------
 \clearpage
-\pagenumbering{arabic}
-\setcounter{page}{1}
 \addcontentsline{toc}{chapter}{目录}
-\makeatletter\@mainmattertrue\makeatother
 \tableofcontents
 
 % ------------------------------------------------------------
@@ -169,8 +160,12 @@
 % \input{chapters/symbols}
 
 % ------------------------------------------------------------
-% 正文部分
+% 正文部分（阿拉伯数字页码从 1 开始）
 % ------------------------------------------------------------
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\makeatletter\@mainmattertrue\makeatother
 
 % 各章节文件引入
 \input{chapters/chapter1}
@@ -186,6 +181,7 @@
 % ------------------------------------------------------------
 \backmatter
 \bibliographystyle{gbt7714-numerical}  % 国标GB/T 7714-2015 顺序编码制
+\addcontentsline{toc}{chapter}{参考文献}
 \bibliography{references}
 
 % ------------------------------------------------------------
